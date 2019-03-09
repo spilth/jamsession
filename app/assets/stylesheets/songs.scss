@@ -1,0 +1,110 @@
+h1.title {
+  text-align: center;
+}
+
+h2.artist {
+  text-align: center;
+}
+
+#chords {
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1.5em;
+
+  .name {
+    width: 12%;
+    // margin-top: 1.4rem;
+    font-family: "Times New Roman";
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+}
+
+.information {
+  float: right;
+  max-width: 128px;
+}
+
+@media screen and (max-width:768px) {
+  .section {
+    flex-direction: column;
+
+    .name {
+      width: 100%;
+    }
+  }
+
+  .information {
+    float: none;
+    text-align: right;
+    max-width: 768px;
+  }
+
+  .year {
+    display: none;
+  }
+
+  .album {
+    display: none;
+  }
+}
+
+@media print {
+  .section {
+    page-break-inside: avoid;
+  }
+}
+
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.tablature {
+  font-family: monospace;
+  font-size: 1.3rem;
+  //letter-spacing: -0.15rem;
+  line-height: 1.0rem;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.chord, .lyric {
+  text-wrap: avoid;
+  // Make sure chords right next to each other have breathing room
+  margin-right: 0.4em;
+}
+
+.chord {
+  min-height: 1.4em;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: -0.2em;
+}
+
+.lyric {
+  // Force the chords above an empty lyrics section to the top
+  min-height: 1.5em;
+  font-family: "Times New Roman";
+  font-size: 1.4rem;
+}
+
+.comment {
+  font-family: "Times New Roman";
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 0.5em;
+}
+
+@media print {
+  .line {
+    page-break-inside: avoid;
+  }
+}
