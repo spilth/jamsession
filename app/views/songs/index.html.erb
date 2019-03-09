@@ -9,7 +9,9 @@
     <tr>
       <th>Title</th>
       <th>Artist</th>
-      <th></th>
+      <th>Download</th>
+      <th>Listen</th>
+      <th>Edit</th>
     </tr>
   </thead>
 
@@ -18,6 +20,8 @@
       <tr>
         <td><%= link_to song.title, song %></td>
         <td><%= song.artist %></td>
+        <td><%= link_to 'PDF', song_path(song, format: :pdf) %></td>
+        <td><%= link_to_if song.spotify_url.present?, 'Listen', song.spotify_url %></td>
         <td><%= link_to 'Edit', edit_song_path(song) %></td>
       </tr>
     <% end %>

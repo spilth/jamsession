@@ -106,7 +106,9 @@ module SongsHelper
       'D#5': 'x688xx',
 
       # Six Chords
+      'D6': 'xx0202',
       'E6': '022120',
+      'G6': '320000',
 
       # Seventh Chords
       'A7': '002020',
@@ -135,6 +137,7 @@ module SongsHelper
 
       # Seventh Suspended 4th Chords
       'A7sus4': '002030',
+      'G7sus4': '353533',
 
       # Minor Chords
       'Am': '002210',
@@ -147,6 +150,7 @@ module SongsHelper
       'F#m': '244222',
       'Gm': '355333',
       'G#m': '466444',
+
       # Minor Seventh Chords
       'Am7': '002010',
       'A#m7': 'x13121',
