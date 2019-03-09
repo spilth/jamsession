@@ -30,4 +30,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      song:
+        body: "Sections, Lyrics & Chords (SongPro Format)"
+        spotify_url: "Spotify URL"
