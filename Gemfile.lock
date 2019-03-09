@@ -52,9 +52,6 @@ GEM
       autoprefixer-rails (>= 6.0.3)
       popper_js (>= 1.12.9, < 2)
       sass (>= 3.5.2)
-    bootswatch (4.1.1)
-      autoprefixer-rails (>= 6.0.3)
-      sass (>= 3.5.2)
     builder (3.2.3)
     byebug (11.0.0)
     coffee-rails (4.2.2)
@@ -195,7 +192,6 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap
-  bootswatch
   byebug
   coffee-rails (~> 4.2)
   haml
