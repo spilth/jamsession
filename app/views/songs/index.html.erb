@@ -20,7 +20,7 @@
       <tr>
         <td><%= link_to song.title, song %></td>
         <td><%= song.artist %></td>
-        <td><%= link_to 'PDF', song_path(song, format: :pdf) %></td>
+        <td><% if song.pdf %><%= link_to 'PDF', rails_blob_path(song.pdf) %><% end %></td>
         <td><%= link_to_if song.spotify_url.present?, 'Spotify', song.spotify_url %></td>
         <td><%= link_to 'Edit', edit_song_path(song) %></td>
       </tr>

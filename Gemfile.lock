@@ -45,6 +45,21 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (9.4.10)
       execjs
+    aws-eventstream (1.0.1)
+    aws-partitions (1.143.0)
+    aws-sdk-core (3.46.2)
+      aws-eventstream (~> 1.0)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-kms (1.13.0)
+      aws-sdk-core (~> 3, >= 3.39.0)
+      aws-sigv4 (~> 1.0)
+    aws-sdk-s3 (1.31.0)
+      aws-sdk-core (~> 3, >= 3.39.0)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.0)
+    aws-sigv4 (1.0.3)
     bindex (0.5.0)
     bootsnap (1.4.1)
       msgpack (~> 1.0)
@@ -63,6 +78,11 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
+    delayed_job (4.1.5)
+      activesupport (>= 3.0, < 5.3)
+    delayed_job_active_record (4.1.3)
+      activerecord (>= 3.0, < 5.3)
+      delayed_job (>= 3.0, < 5)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.10.0)
@@ -76,6 +96,7 @@ GEM
     jbuilder (2.8.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jmespath (1.4.0)
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -190,10 +211,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-sdk-s3
   bootsnap (>= 1.1.0)
   bootstrap
   byebug
   coffee-rails (~> 4.2)
+  delayed_job_active_record
   haml
   jbuilder (~> 2.5)
   jquery-rails
