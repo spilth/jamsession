@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_004627) do
+ActiveRecord::Schema.define(version: 2019_03_11_125604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2019_03_11_004627) do
     t.string "spotify_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "path"
+    t.index ["path"], name: "index_songs_on_path"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
