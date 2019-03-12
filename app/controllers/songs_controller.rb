@@ -87,7 +87,7 @@ class SongsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_song
-    @song = Song.find(params[:id])
+    @song = Song.find_by(path: params[:path])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

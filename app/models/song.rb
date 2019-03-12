@@ -1,5 +1,5 @@
 class Song < ApplicationRecord
-  validates :title, presence: true, uniqueness: { scope: :artist }
+  validates :title, presence: true, uniqueness: true
   validates :artist, presence: true
   validates :body, presence: true
 
@@ -11,5 +11,9 @@ class Song < ApplicationRecord
 
   after_save do
     GeneratePdfJob.perform_later(self)
+  end
+
+  def to_param
+    path
   end
 end
