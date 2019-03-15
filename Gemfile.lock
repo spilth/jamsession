@@ -76,6 +76,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    combine_pdf (1.0.16)
+      ruby-rc4 (>= 0.1.5)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
     delayed_job (4.1.5)
@@ -158,6 +160,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    ruby-rc4 (0.1.5)
     ruby_dep (1.5.0)
     sass (3.7.3)
       sass-listen (~> 4.0.0)
@@ -216,6 +219,7 @@ DEPENDENCIES
   bootstrap
   byebug
   coffee-rails (~> 4.2)
+  combine_pdf
   delayed_job_active_record
   haml
   jbuilder (~> 2.5)

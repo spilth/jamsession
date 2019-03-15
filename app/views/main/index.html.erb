@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Songs</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>PDF</th>
+    <th>Spotify</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @songs.each do |song| %>
+    <tr>
+      <td><%= link_to song.title, song %></td>
+      <td><%= song.artist %></td>
+      <td><% if song.pdf %><%= link_to 'PDF', rails_blob_path(song.pdf) %><% end %></td>
+      <td><%= link_to_if song.spotify_url.present?, 'Spotify', song.spotify_url %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
