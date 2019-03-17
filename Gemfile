@@ -13,6 +13,7 @@ gem 'wkhtmltopdf-binary'
 gem 'aws-sdk-s3', require: false
 gem 'delayed_job_active_record'
 gem 'combine_pdf'
+gem 'pdf-reader'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'

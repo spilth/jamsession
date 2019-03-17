@@ -10,7 +10,7 @@ class Song < ApplicationRecord
   end
 
   after_save do
-    GeneratePdfJob.perform_later(self)
+    GenerateSongPdfJob.perform_later(self)
   end
 
   def to_param
