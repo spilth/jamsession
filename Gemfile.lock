@@ -71,6 +71,13 @@ GEM
       sass (>= 3.5.2)
     builder (3.2.3)
     byebug (11.0.0)
+    coffee-rails (4.2.2)
+      coffee-script (>= 2.2.0)
+      railties (>= 4.0.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     combine_pdf (1.0.16)
       ruby-rc4 (>= 0.1.5)
     concurrent-ruby (1.1.4)
@@ -217,6 +224,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap
   byebug
+  coffee-rails (~> 4.2)
   combine_pdf
   delayed_job_active_record
   haml
