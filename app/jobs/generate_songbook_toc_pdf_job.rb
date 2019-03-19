@@ -7,8 +7,6 @@ class GenerateSongbookTocPdfJob < ApplicationJob
 
     songbook.table_of_contents.attach(io: pdf, filename: "#{songbook.name.parameterize}.toc.pdf")
 
-    # reader = PDF::Reader.new(pdf)
-    # songbook.update_column(:page_count, reader.page_count)
     GenerateSongbookPdfJob.perform_later(songbook)
   end
 end

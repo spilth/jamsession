@@ -6,8 +6,6 @@ class GenerateSongbookPdfJob < ApplicationJob
   def perform(songbook)
     pdf = CombinePDF.new
 
-    # Table of Contents
-    # songbook << CombinePDF.load("#{__dir__}/#{PDF_BUILD_PATH}/toc.pdf")
     pdf << CombinePDF.parse(songbook.table_of_contents.download)
 
     songs = songbook.songs.all.order(:title)

@@ -4,6 +4,10 @@
 
 <p class="lead"><%= @songbook.description %></p>
 
+<% if @songbook.pdf.attached? %>
+  <p class="text-right"><%= link_to 'Download PDF', rails_blob_path(@songbook.pdf), class:'btn btn-primary' %></p>
+<% end %>
+
 <table class="table table-striped table-borderless">
   <thead>
   <tr>
@@ -19,7 +23,7 @@
     <tr>
       <td><%= link_to song.title, song %></td>
       <td><%= song.artist %></td>
-      <td><% if song.pdf %><%= link_to 'PDF', rails_blob_path(song.pdf) %><% end %></td>
+      <td><% if song.pdf.attached? %><%= link_to 'PDF', rails_blob_path(song.pdf) %><% end %></td>
       <td><%= link_to_if song.spotify_url.present?, 'Spotify', song.spotify_url %></td>
     </tr>
   <% end %>
