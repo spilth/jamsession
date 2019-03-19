@@ -5,6 +5,8 @@ class Song < ApplicationRecord
 
   has_one_attached :pdf
 
+  has_and_belongs_to_many :songbooks
+
   before_save do
     self.path = title.parameterize
   end

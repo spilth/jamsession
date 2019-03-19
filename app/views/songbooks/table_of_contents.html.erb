@@ -1,0 +1,26 @@
+<table style="width: 100%;">
+  <tr>
+    <% page_number = 2 %>
+    <% @songbook.songs.each_slice( (@songbook.songs.size/2.0).ceil ) do |songs| %>
+      <td style="vertical-align: top">
+        <table class="table table-sm" style="width: 100%;">
+          <thead>
+          <tr>
+            <th>Song</th>
+            <th>Page</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% songs.each do |song| %>
+            <tr>
+              <td><%= song.title %></td>
+              <td><%= page_number %></td>
+            </tr>
+            <% page_number += 2 %>
+          <% end %>
+          </tbody>
+        </table>
+      </td>
+    <% end %>
+  </tr>
+</table>

@@ -1,0 +1,34 @@
+<%= form_with(model: songbook, local: true) do |form| %>
+  <% if songbook.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(songbook.errors.count, "error") %> prohibited this songbook from being saved:</h2>
+
+      <ul>
+      <% songbook.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :songs %>
+    <%= collection_check_boxes(:songbook, :song_ids, Song.all.order(:title), :id, :title) do |b| %>
+      <div class="form-check">
+        <%= b.label(class:"form-check-label") { b.check_box(class: 'form-check-input') + b.text } %>
+      </div>
+    <% end  %>
+  </div>
+
+   <%= form.submit class: 'btn btn-primary' %>
+<% end %>

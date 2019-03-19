@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_17_180745) do
+ActiveRecord::Schema.define(version: 2019_03_19_142802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,21 @@ ActiveRecord::Schema.define(version: 2019_03_17_180745) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "songbooks", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "path"
+  end
+
+  create_table "songbooks_songs", id: false, force: :cascade do |t|
+    t.bigint "songbook_id", null: false
+    t.bigint "song_id", null: false
+    t.index ["song_id", "songbook_id"], name: "index_songbooks_songs_on_song_id_and_songbook_id"
+    t.index ["songbook_id", "song_id"], name: "index_songbooks_songs_on_songbook_id_and_song_id"
   end
 
   create_table "songs", force: :cascade do |t|

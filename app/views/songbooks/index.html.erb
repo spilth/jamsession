@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Songbook Admin</h1>
+
+<p class="text-right"><%= link_to 'New Songbook', new_songbook_path, class: 'btn btn-primary' %></p>
+
+<table class="table table-striped table-borderless">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @songbooks.each do |songbook| %>
+      <tr>
+        <td><%= link_to songbook.name, songbook %></td>
+        <td><%= songbook.description %></td>
+        <td><%= link_to 'Edit', edit_songbook_path(songbook) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
