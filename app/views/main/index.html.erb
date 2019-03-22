@@ -47,7 +47,15 @@
     <tr>
       <td><%= link_to song.title, song %></td>
       <td><%= song.artist %></td>
-      <td><% if song.pdf.attached? %><%= link_to 'PDF', rails_blob_path(song.pdf) %><% end %></td>
+      <td>
+        <% if song.building %>
+          <div class="spinner-border spinner-border-sm" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        <% elsif song.pdf.attached? %>
+          <%= link_to 'PDF', rails_blob_path(song.pdf) %>
+        <% end %>
+      </td>
       <td><%= link_to_if song.spotify_url.present?, 'Spotify', song.spotify_url %></td>
     </tr>
   <% end %>

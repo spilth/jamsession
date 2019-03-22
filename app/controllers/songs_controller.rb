@@ -46,7 +46,7 @@ class SongsController < ApplicationController
   # POST /songs
   # POST /songs.json
   def create
-    @song = Song.new(song_params)
+    @song = Song.new(song_params.merge(building: true))
 
     respond_to do |format|
       if @song.save
@@ -63,7 +63,7 @@ class SongsController < ApplicationController
   # PATCH/PUT /songs/1.json
   def update
     respond_to do |format|
-      if @song.update(song_params)
+      if @song.update(song_params.merge(building: true))
         format.html {redirect_to @song, notice: 'Song was successfully updated.'}
         format.json {render :show, status: :ok, location: @song}
       else
