@@ -3,6 +3,7 @@ class Songbook < ApplicationRecord
 
   has_one_attached :table_of_contents
   has_one_attached :pdf
+  has_one_attached :blank_page
 
   before_save do
     self.path = name.parameterize

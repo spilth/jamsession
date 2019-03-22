@@ -6,11 +6,16 @@ class GenerateSongbookPdfJob < ApplicationJob
   def perform(songbook)
     pdf = CombinePDF.new
 
+    blank_page = CombinePDF.parse(songbook.blank_page.download)
+
     pdf << CombinePDF.parse(songbook.table_of_contents.download)
 
     songs = songbook.songs.all.order(:title)
 
-    songs.each {|song| pdf << CombinePDF.parse(song.pdf.download)}
+    songs.each do |song|
+      pdf << CombinePDF.parse(song.pdf.download)
+      pdf << blank_page if song.page_count == 1
+    end
 
     pdf.number_pages(
         number_format: '%s',

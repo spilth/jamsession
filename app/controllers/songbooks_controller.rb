@@ -1,5 +1,5 @@
 class SongbooksController < ApplicationController
-  before_action :set_songbook, only: [:show, :table_of_contents, :edit, :update, :destroy]
+  before_action :set_songbook, only: [:show, :table_of_contents, :blank_page, :edit, :update, :destroy]
 
   # GET /songbooks
   def index
@@ -16,6 +16,28 @@ class SongbooksController < ApplicationController
       format.pdf do
         render pdf: @songbook.name.parameterize,
                template: 'songbooks/table_of_contents.html.erb',
+               layout: 'pdf',
+               page_size: 'letter',
+               margin: {
+                   top: '10mm',
+                   bottom: '10mm',
+                   left: '20mm',
+                   right: '20mm'
+               },
+               print_media_type: true,
+               dpi: 300,
+               zoom: 0.80,
+               low_quality: true
+      end
+    end
+  end
+
+  def blank_page
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: @songbook.name.parameterize,
+               template: 'songbooks/blank_page.html.erb',
                layout: 'pdf',
                page_size: 'letter',
                margin: {
