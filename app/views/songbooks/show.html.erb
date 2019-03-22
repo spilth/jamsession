@@ -4,9 +4,16 @@
 
 <p class="lead"><%= @songbook.description %></p>
 
-<% if @songbook.pdf.attached? %>
-  <p class="text-right"><%= link_to 'Download PDF', rails_blob_path(@songbook.pdf), class:'btn btn-primary' %></p>
-<% end %>
+<p class="text-right">
+  <% if @songbook.building %>
+    <button class="btn btn-primary" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      PDF Building...
+    </button>
+  <% elsif @songbook.pdf.attached? %>
+    <%= link_to 'Download PDF', rails_blob_path(@songbook.pdf), class:'btn btn-primary' %>
+  <% end %>
+</p>
 
 <table class="table table-striped table-borderless">
   <thead>

@@ -2,6 +2,8 @@ class GenerateSongbookTocPdfJob < ApplicationJob
   queue_as :default
 
   def perform(songbook)
+    songbook.update_column(:building, true)
+
     url =  Rails.application.routes.url_helpers.table_of_contents_songbook_url(songbook, format: :pdf)
     toc = open(url)
     songbook.table_of_contents.attach(io: toc, filename: "#{songbook.name.parameterize}.toc.pdf")

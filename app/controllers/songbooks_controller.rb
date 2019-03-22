@@ -65,7 +65,7 @@ class SongbooksController < ApplicationController
 
   # POST /songbooks
   def create
-    @songbook = Songbook.new(songbook_params)
+    @songbook = Songbook.new(songbook_params.merge(building: true))
 
     if @songbook.save
       redirect_to @songbook, notice: 'Songbook was successfully created.'
@@ -76,7 +76,7 @@ class SongbooksController < ApplicationController
 
   # PATCH/PUT /songbooks/1
   def update
-    if @songbook.update(songbook_params)
+    if @songbook.update(songbook_params.merge(building: true))
       redirect_to @songbook, notice: 'Songbook was successfully updated.'
     else
       render :edit
