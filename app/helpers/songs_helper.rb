@@ -130,10 +130,12 @@ module SongsHelper
 
       # Major Suspended 2nd Chords
       'Dsus2': 'xx0230',
+      'Asus2': 'x02200',
 
       # Major Suspended 4th Chords
-      'Asus4': '002230',
+      'Asus4': 'x02230',
       'Dsus4': 'xx0233',
+      'Esus4': '022200',
 
       # Seventh Suspended 4th Chords
       'A7sus4': '002030',
@@ -163,6 +165,7 @@ module SongsHelper
 
       # Minor Eleventh Chords
       'Bm11': 'x20220',
+      'F#m11': '202200',
 
       # Major 9th Chords
       'Cadd9': 'x32033',
@@ -173,6 +176,7 @@ module SongsHelper
       'Bb/A': 'x00331',
       'C/B': 'x22010',
       'C/E': '032010',
+      'D/A': 'x04232',
       'D/F#': '200232',
       'F/A': 'x03211',
       'G/B': 'x20003',
