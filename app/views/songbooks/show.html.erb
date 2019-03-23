@@ -26,7 +26,7 @@
   </thead>
 
   <tbody>
-  <% @songbook.songs.each do |song| %>
+  <% @songbook.songs.order(:title).each do |song| %>
     <tr>
       <td><%= link_to song.title, song %></td>
       <td><%= song.artist %></td>

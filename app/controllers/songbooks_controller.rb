@@ -3,7 +3,7 @@ class SongbooksController < ApplicationController
 
   # GET /songbooks
   def index
-    @songbooks = Songbook.all
+    @songbooks = Songbook.order(:name).all
   end
 
   # GET /songbooks/1

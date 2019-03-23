@@ -6,7 +6,7 @@ class Songbook < ApplicationRecord
   has_one_attached :blank_page
 
   validates :name, presence: true, uniqueness: true
-  
+
   before_save do
     self.path = name.parameterize
   end

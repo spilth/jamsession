@@ -9,6 +9,7 @@
     <tr>
       <th>Name</th>
       <th>Description</th>
+      <th colspan="2">Actions</th>
     </tr>
   </thead>
 
@@ -17,7 +18,10 @@
       <tr>
         <td><%= link_to songbook.name, songbook %></td>
         <td><%= songbook.description %></td>
-        <td><%= link_to 'Edit', edit_songbook_path(songbook) %></td>
+        <td><%= link_to 'Edit', edit_songbook_path(songbook), class: 'btn btn-warning btn-sm' %></td>
+        <td>
+          <%= link_to 'Delete', songbook_path(songbook), class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

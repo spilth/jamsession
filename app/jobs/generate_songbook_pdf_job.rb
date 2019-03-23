@@ -12,7 +12,7 @@ class GenerateSongbookPdfJob < ApplicationJob
 
     songs = songbook.songs.all.order(:title)
 
-    songs.each do |song|
+    songs.order(:title).each do |song|
       pdf << CombinePDF.parse(song.pdf.download)
       pdf << blank_page if song.page_count == 1
     end
