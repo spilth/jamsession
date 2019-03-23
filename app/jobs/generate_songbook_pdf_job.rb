@@ -17,12 +17,12 @@ class GenerateSongbookPdfJob < ApplicationJob
       pdf << blank_page if song.page_count == 1
     end
 
-    pdf.number_pages(
-      number_format: '%s',
-      location: :bottom_right,
-      margin_from_height: 5,
-      font_size: 9
-    )
+    # pdf.number_pages(
+    #   number_format: '%s',
+    #   location: :bottom_right,
+    #   margin_from_height: 5,
+    #   font_size: 9
+    # )
 
     songbook.pdf.attach(io: StringIO.new(pdf.to_pdf), filename: "#{songbook.name.parameterize}.pdf")
     songbook.update_column(:building, false)
