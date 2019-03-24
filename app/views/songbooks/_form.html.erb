@@ -4,9 +4,9 @@
       <h2><%= pluralize(songbook.errors.count, "error") %> prohibited this songbook from being saved:</h2>
 
       <ul>
-      <% songbook.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% songbook.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -24,11 +24,9 @@
   <div class="form-group">
     <%= form.label :songs %>
 
-
-    <table class="table table-striped table-borderless">
+    <table class="table table-sm table-striped table-borderless">
       <thead>
       <tr>
-        <th>Included</th>
         <th>Title</th>
         <th>Artist</th>
         <th>Difficulty</th>
@@ -36,17 +34,16 @@
       </thead>
 
       <tbody>
-    <%= collection_check_boxes(:songbook, :song_ids, Song.all.order(:title), :id, :title) do |b| %>
+      <%= collection_check_boxes(:songbook, :song_ids, Song.all.order(:title), :id, :title) do |b| %>
         <tr>
-          <td><%= b.check_box %></td>
-          <td><%= link_to b.object.title, b.object %></td>
+          <td><%= b.label(class:"form-check-label") { b.check_box + " " + b.text } %></td>
           <td><%= b.object.artist %></td>
           <td><%= b.object.difficulty.try(:humanize) %></td>
         </tr>
-      <% end  %>
+      <% end %>
       </tbody>
     </table>
   </div>
 
-   <%= form.submit class: 'btn btn-primary' %>
+  <%= form.submit class: 'btn btn-primary' %>
 <% end %>
