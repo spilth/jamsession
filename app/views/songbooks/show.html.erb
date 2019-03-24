@@ -20,6 +20,7 @@
   <tr>
     <th>Title</th>
     <th>Artist</th>
+    <th>Difficulty</th>
     <th>PDF</th>
     <th>Spotify</th>
   </tr>
@@ -30,6 +31,7 @@
     <tr>
       <td><%= link_to song.title, song %></td>
       <td><%= song.artist %></td>
+      <td><%= song.difficulty.try(:humanize) %></td>
       <td><% if song.pdf.attached? %><%= link_to 'PDF', rails_blob_path(song.pdf) %><% end %></td>
       <td><%= link_to_if song.spotify_url.present?, 'Spotify', song.spotify_url %></td>
     </tr>

@@ -1,4 +1,6 @@
 class Song < ApplicationRecord
+  enum difficulty: { beginner: 0, easy: 1, medium: 2, hard: 3 }
+
   validates :title, presence: true, uniqueness: true
   validates :artist, presence: true
   validates :body, presence: true

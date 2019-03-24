@@ -37,6 +37,7 @@
   <tr>
     <th>Title</th>
     <th>Artist</th>
+    <th>Difficulty</th>
     <th>PDF</th>
     <th>Spotify</th>
   </tr>
@@ -47,6 +48,7 @@
     <tr>
       <td><%= link_to song.title, song %></td>
       <td><%= song.artist %></td>
+      <td><%= song.difficulty.try(:humanize) %></td>
       <td>
         <% if song.building %>
           <div class="spinner-border spinner-border-sm" role="status">
