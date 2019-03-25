@@ -28,6 +28,8 @@
 
   <div class="form-group">
     <%= form.label :body %>
+    <%= react_component("Editor") %>
+
     <%= form.text_area :body, class: "form-control", rows: 20, style: "font-family:monospace" %>
   </div>
 

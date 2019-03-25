@@ -14,6 +14,8 @@ gem 'aws-sdk-s3', require: false
 gem 'delayed_job_active_record'
 gem 'combine_pdf'
 gem 'pdf-reader'
+gem 'webpacker'
+gem 'react-rails'
 
 gem 'rails', '~> 5.2.2'
 gem 'pg', '>= 0.18', '< 2.0'
