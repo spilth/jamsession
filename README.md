@@ -1,24 +1,17 @@
-# README
+# Jam Session
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails app for building songbooks for jam sessions
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+```bash
+$ git clone git@github.com:spilth/jamsession.git
+$ cd jamsession
+$ bundle
+$ bin/setup
+$ gem install foreman
+$ foreman start
+```
 
-* System dependencies
+Then head to <http://localhost:5000/>
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
