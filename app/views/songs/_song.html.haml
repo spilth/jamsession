@@ -26,7 +26,7 @@
 
   %div#chords
     - chords.each do |chord|
-      %span= raw(chord_svg(chord))
+      %span= raw(ChordDiagrams.chord_svg(chord))
 
 - song.sections.each do |section|
   %div.section
