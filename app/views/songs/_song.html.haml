@@ -1,5 +1,9 @@
-%div#information
+%div.information
   %dl
+    - if song.custom[:order]
+      %dt.page Page
+      %dd.page= song.custom[:order].to_i * 2
+
     - if song.tuning
       %dt.tuning Tuning
       %dd.tuning= song.tuning
@@ -25,8 +29,12 @@
       %dd.album= song.album
 
   %div#chords
-    - chords.each do |chord|
-      %span= raw(ChordDiagrams.chord_svg(chord))
+    %div#guitar
+      - song.chords.each do |chord|
+        %span= raw(ChordDiagrams.guitar_svg chord)
+    %div#ukulele{style: 'display:none '}
+      - song.chords.each do |chord|
+        %span= raw(ChordDiagrams.ukulele_svg chord)
 
 - song.sections.each do |section|
   %div.section
@@ -35,6 +43,14 @@
       - section.lines.each do|line|
         - if line.tablature?
           %div.tablature= line.tablature
+        - elsif line.comment?
+          %div.comment= line.comment
+        - elsif line.measures?
+          %div.measures
+            - line.measures.each do |measure|
+              %div.measure
+                - measure.chords.each do |chord|
+                  %div.chord= chord
         - else
           %div.line
             - line.parts.each do |part|

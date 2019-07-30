@@ -1,18 +1,10 @@
 h1.title {
   text-align: center;
+  font-weight: 900;
 }
 
 h2.artist {
   text-align: center;
-}
-
-#information {
-  float: right;
-  max-width: 128px;
-}
-
-div > * {
-  vertical-align:top;
 }
 
 #chords {
@@ -22,58 +14,23 @@ div > * {
 
 .section {
   display: flex;
-  margin-bottom: 1.5em;
+  flex-direction: row;
+  margin-bottom: 1.0em;
 
   .name {
     width: 12%;
+    // margin-top: 1.4rem;
     font-family: "Times New Roman", serif;
     font-weight: bold;
     font-size: 1.2rem;
     font-style: italic;
-    display: inline-block;
   }
 }
 
-.lines {
-  display: inline-block;
-}
-
-.line {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-}
-
-.part {
-  display: inline-block;
-}
-
-.tablature {
-  font-family: monospace;
-  font-size: 1.3rem;
-  line-height: 1.0rem;
-  overflow: visible;
-  white-space: nowrap;
-}
-
-.chord, .lyric {
-  text-wrap: avoid;
-  // Make sure chords and lyrics right next to each other have breathing room
-  margin-right: 0.4em;
-}
-
-.chord {
-  min-height: 1.5em;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-bottom: -0.2em;
-}
-
-.lyric {
-  // Force the chords above an empty lyrics section to the top
-  min-height: 1.5em;
-  font-family: "Times New Roman", serif;
-  font-size: 1.4rem;
+.information {
+  float: right;
+  max-width: 100px;
+  text-align: right;
 }
 
 @media screen and (max-width:768px) {
@@ -85,7 +42,7 @@ div > * {
     }
   }
 
-  #information {
+  .information {
     float: none;
     text-align: right;
     max-width: 768px;
@@ -105,7 +62,100 @@ div > * {
     page-break-inside: avoid;
   }
 
+  dt.page, dd.page {
+    display: none;
+  }
+}
+
+.line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.tablature {
+  font-family: monospace;
+  font-size: 1.3rem;
+  //letter-spacing: -0.15rem;
+  line-height: 1.0rem;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.comment {
+  font-style: italic;
+  font-size: 0.5rem;
+  color: #333;
+  background: #eee;
+  padding: 0.1em 0.25em;
+  border-radius: 4px;
+}
+
+.measures {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 48em;
+}
+
+.measure {
+  width: 12em;
+  display: flex;
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin-left: -2px;
+  margin-bottom: 1.4em;
+
+  .chord {
+    width: 8em;
+    flex-grow: 1;
+  }
+}
+
+.chord, .lyric {
+  text-wrap: avoid;
+  // Make sure chords right next to each other have breathing room
+  margin-right: 0.3em;
+}
+
+.chord {
+  min-height: 1.4em;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: -0.2em;
+}
+
+.lyric {
+  // Force the chords above an empty lyrics section to the top
+  min-height: 1.5em;
+  font-family: "Times New Roman", serif;
+  font-size: 1.4rem;
+}
+
+.comment {
+  font-family: "Times New Roman";
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 0.5em;
+}
+
+@media print {
   .line {
     page-break-inside: avoid;
   }
+
+  .ukulele {
+    display: none;
+  }
+}
+
+th.sortable {
+  cursor: pointer;
+  color: #007bff;
+}
+
+th.asc {
+  cursor: default;
+  color: #000000;
 }
