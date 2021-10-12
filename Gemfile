@@ -18,7 +18,7 @@ gem 'chord_diagrams'
 
 gem 'rails', '~> 5.2.2'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.3.8'
+gem 'puma', '~> 4.3.9'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
